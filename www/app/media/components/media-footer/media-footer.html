@@ -1,0 +1,27 @@
+<ion-footer-bar align-title="left" class="bar-assertive footer-media" ng-show="vm.isVisible">
+        <div class="footer-media-playinfo">
+            <div class="track-duration">{{vm.track.position | duration}} / {{vm.track.duration | duration}}</div>
+
+            <div class="range footer-media-slider">
+                <input type="range"
+                        name="volume"
+                        min="0"
+                        max="{{vm.track.duration}}"
+                        ng-model="vm.track.position"
+                        ng-disabled="vm.currentMediaStatus === vm.mediaStatus.starting"
+                        ng-change="vm.onLocationDrag()"
+                        on-release="vm.onLocationRelease()">
+            </div>
+        </div>
+
+        <div class="footer-media-left">
+            <div class="footer-media-track">{{vm.currentTrack.id3_title}}</div>
+            <div class="footer-media-artist">{{vm.currentTrack.id3_artist}}</div>
+        </div>
+
+        <i class="icon ion-player-controls ion-ios-skipbackward" ng-click="vm.playPreviousTrack()" ng-show="vm.hasPreviousTrack()"></i>
+        <i class="icon ion-player-controls ion-pause" ng-click="vm.pausePlay()" ng-show="vm.currentMediaStatus === vm.mediaStatus.running"></i>
+        <i class="icon ion-player-controls ion-play" ng-click="vm.resumePlay()" ng-show="vm.currentMediaStatus === vm.mediaStatus.paused || vm.currentMediaStatus === vm.mediaStatus.stopped"></i>
+        <i class="icon ion-player-controls ion-ios-skipforward" ng-click="vm.playNextTrack()" ng-show="vm.hasNextTrack()"></i>
+        <ion-spinner icon="dots" ng-show="vm.currentMediaStatus === vm.mediaStatus.starting"></ion-spinner>
+</ion-footer-bar>

@@ -1,0 +1,14 @@
+<ion-view title="Albums">
+    <ion-content padding="false" class="has-header" content-footer-spacer>
+        <div class="center" ng-show="vm.loading">
+            <ion-spinner icon="lines"></ion-spinner>
+        </div>
+        <retry-loading retry-callback="vm.loadData()" ng-if="vm.failedToLoad"></retry-loading>
+        <ion-list>
+            <ion-item collection-repeat="album in vm.albums" href="#/home/tracks/{{album.id}}/{{album.album_name}}">{{album.album_name}}</ion-item>
+        </ion-list>
+        <div class="padded-container" ng-if="!vm.loading && !vm.failedToLoad && vm.albums.length==0">
+            <p class="center">No Albums found 😞</p>
+        </div>
+    </ion-content>
+</ion-view>

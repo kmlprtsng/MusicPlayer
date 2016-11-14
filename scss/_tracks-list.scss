@@ -1,0 +1,40 @@
+.tracks-list-header{
+    position: relative;
+}
+
+.tracks-list-header-main{
+    padding: 14px 6px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.tracks-list-header-actions{
+    position: absolute;
+    right: 20px;
+    bottom: -20px;
+    z-index: 99;
+}
+
+.tracks-list-artist{
+    padding-right: 40px;
+}
+
+.tracks-list-artist, .tracks-list-duration{
+    color: gray;
+    font-size: 0.7em;
+}
+
+.tracks-list-title, .tracks-list-artist{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    word-wrap: break-word;
+    width: 100%;
+}
+
+.tracks-list-duration{
+    position: absolute;
+    right: 17px;
+    top: 36px;
+}

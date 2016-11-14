@@ -1,0 +1,11 @@
+<ion-view title="Sikh Sangeet">
+    <ion-content padding="false" class="has-header"  content-footer-spacer>
+        <div class="center" ng-show="vm.loading">
+            <ion-spinner icon="lines"></ion-spinner>
+        </div>
+        <retry-loading retry-callback="vm.loadData()" ng-if="vm.failedToLoad"></retry-loading>
+        <ion-list>
+            <ion-item ng-repeat="genre in vm.genres" href="#/home/artists/{{genre.id}}">{{genre.genre}}</ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
